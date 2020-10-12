@@ -3,10 +3,14 @@
  */
 
 
-let value = prompt("Entrez une valeur entre 1 et 100");
+let value = prompt("Entrez un nombre pour calculez son factorielle");
 let n=parseInt(value);
-let result=1;
-for (let i=1;i<=n;i++){
-    result*=i;
+if (isNaN(n)) {
+    alert("Vous devez saissir un nombre");
+} else {
+    let result = 1;
+    for (let i = 1; i <= n; i++) {
+        result *= i;
+    }
+    alert(`Factorielle de ${value} est ${result}`);
 }
-alert(`Factorielle de ${value} est ${result}`);
