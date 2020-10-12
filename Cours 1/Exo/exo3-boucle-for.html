@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cours 1 Javascript | Exercice 3 Boucle for </title></head>
+<body>
+<h1> Cours 1 Javascript - Exercice 3 Boucle for </h1>
+<p>
+    Calculez et affichez la factorielle de n où la valeur de n
+    est donnée par l’utilisateur :
+    <strong>n! = 1*2*…*n</strong>
+</p>
+<br>Exemple :
+<ul>
+    <li>1! = 1</li>
+    <li>2! = 1*2 = 2</li>
+    <li>3! = 1*2*3 = 6</li>
+</ul>
+
+<code lang="js">
+    let value = prompt("Entrez une valeur entre 1 et 100");
+    let n=parseInt(value);
+    let result=1;
+    for (let i=1;i<=n;i++){
+    result*=i;
+    }
+    alert(`Factorielle de ${value} est ${result}`);
+</code>
+</body>
+<script src="exo3-boucle-for.js"></script>
+</html>
