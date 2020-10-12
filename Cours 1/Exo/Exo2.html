@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cours 1 Javascript | Exercice 2 </title>
+</head>
+<body>
+<h1> Cours 1 Javascript - Exercice 2 </h1>
+<p>
+    Ecrivez un programme en JavaScript qui demande à <br/>
+    l’utilisateur une valeur entre 1 et 100 et qui affiche soit <br/>
+    la valeur si elle est correcte (entre 1 et 100), soit un <br/>
+    message d’erreur si la valeur n’est pas correcte. <br/>
+</p>
+<code lang="js">
+    let value = prompt("Entrez une valeur entre 1 et 100");
+
+    if(value<1 || value>100) {
+    alert('Erreur - Vous devez entrer une valeur comprise entre 1 et 100');
+    } else {
+    alert(`La valeur ${value} est corecte`);
+    }
+
+</code>
+<script src="exo2.js"></script>
+</body>
+</html>
