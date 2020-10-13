@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cours 2 Javascript | Exercice 1 bis</title>
+</head>
+<body>
+<h1>Cours 2 Javascript | Exercice 1 bis</h1>
+<p>
+    Demandez à l’utilisateur la taille d’un triangle et <br/>
+    dessinez un triangle isocèle à l’aide de « * ».<br/>
+    Exemple : taille donnée par l’utilisateur : 3<br/>
+            *
+           ***
+          *****
+         *******
+        *********
+</p>
+</body>
+<script>
+    let value = prompt("Entrez une valeur entre 1 et 10");
+    value=parseInt(value);
+    if (value < 1 || value > 10) {
+        alert('Erreur - Vous devez entrer une valeur comprise entre 1 et 100');
+    } else {
+        document.write("<br/>___________________Solution 1_______________________________ <br/><br/>")
+
+        for (let i = 0; i < value; i++) {
+
+            for (let j = 0; j < 2*i+1; j++) {
+                document.write("*");
+            }
+            document.write("<br/>")
+        }
+    }
+</script>
+</html>
