@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cours 2 Javascript | Exercice 2</title>
+</head>
+<body>
+<h1>Cours 2 Javascript | Exercice 2</h1>
+<p>
+    Ecrivez un programme qui calcule au choix la
+    somme, la différence, le produit et le quotient de
+    deux nombres. Il faut prévenir, par une instruction
+    adéquate, la division par zéro.
+</p>
+</body>
+<script>
+    let a = prompt("Veuillez Saissir la premiere valeur: ");
+    let b = prompt("Veuillez Saissir la deuxieme valeur: ");
+    let choixUser = prompt("Taper: \n 0 => Calcule la somme \n 1 => Calcule la différence \n  2 => Calcule le produit \n 3 => Calcule le quotient");
+
+    if (choixUser < 1 || choixUser > 100) {
+        alert('Erreur - Vous devez entrer une valeur comprise entre 1 et 100');
+    } else {
+        let choixPossible = ["somme", "différence", "produit", "quotient"];
+        let choix = choixPossible[choixUser];
+        switch (choix) {
+            case "somme":
+                var resultat = a + b;
+                alert(`La somme de ${a} et ${b} est égale à ${resultat}`)
+                break
+
+            case "différence":
+                var resultat = a - b;
+                alert(`La différence de ${a} et ${b} est égale à ${resultat}`)
+                break
+
+            case "produit":
+                var resultat = a * b;
+                alert(`Le produit de ${a} et ${b} est égale à ${resultat}`)
+                break
+
+            case "quotient":
+                var resultat = a / b;
+                if (!isFinite(resultat)) {
+                    alert(`Erreur: La division de ${a} par ${b} n'est pas possible`)
+                    break;
+                }
+                alert(`Le quotient de ${a} et ${b} est égale à ${resultat}`)
+                break
+
+            default:
+                alert(`Le choix ${choix} n'existe pas`)
+                break
+
+        }
+    }
+</script>
+</html>
