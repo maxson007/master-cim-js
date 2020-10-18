@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cours 2 Javascript | Exercice 3</title>
+</head>
+<body>
+<h1>Cours 2 Javascript | Exercice 3</h1>
+<p>
+    Ecrire un programme qui calcule le nombre<br/>
+    d’occurrences d’une lettre dans une chaîne de<br/>
+    caractères. La lettre à rechercher et la chaîne sont<br/>
+    rentrées par l’utilisateur.<br/>
+</p>
+    <p>
+    Utilisez la propriété length qui donne la taille d’une<br/>
+    chaine de caractères et la fonction charAt(position)<br/>
+    qui retourne le caractère qui se trouve à la position<br/>
+    indiquée par la variable position. <br/>
+        <samp>Exemples : chaine.length, chaine.chartAt(nPos)</samp>
+</p>
+</body>
+<script>
+    document.write("<br/>_________________------Solution 1-------_______________________________ <br/><br/>")
+
+    let lettre = prompt("Veuillez Saissir la lettre a rechercher dans la chaine: ","a");
+    let chaine = prompt("Veuillez Saissir la chaine : ","aabcdadesaaa");
+    let nbOccurrences=0;
+    for (let i=0; i<chaine.length;i++){
+        if(chaine.charAt(i)===lettre) nbOccurrences++;
+    }
+
+    document.write(`Le Nombre d'occurrences de la lettre :<strong> ${lettre}</strong> dans la chaine: <strong>${chaine}</strong> est de <strong>${nbOccurrences}</strong>`)
+
+</script>
+</html>
