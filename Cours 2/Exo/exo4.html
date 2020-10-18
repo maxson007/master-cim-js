@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cours 2 Javascript | Exercice 4</title>
+</head>
+<body>
+<h1>Cours 2 Javascript | Exercice 4</h1>
+<p>
+    Pour une variable de type chaîne de caractères :
+    <samp>strEmail = "Robert.Martin@france.fr"</samp>
+</p>
+<ol>
+    <li>Afficher la position du caractère @.</li>
+    <li>Remplacez « france » par « yahoo » dans l’adresse e-mail.</li>
+    <li>Afficher l’adresse avec toutes les caractères en minuscules</li>
+    <li>Afficher l’adresse avec toutes les caractères en majuscules</li>
+    <li>Affichez la fin de la chaîne à partir du caractère « @ ».</li>
+    <li>Afficher la dernière position de la lettre ‘o’</li>
+</ol>
+</body>
+<script>
+    let strEmail = "Robert.Martin@france.fr";
+
+    var position_at=strEmail.indexOf("@");
+    document.write(`La position du caractère '@'.: <strong>${position_at}</strong>` )
+    var new_str_france=strEmail.replace("france", "yahoo");
+    document.write("<br/>")
+    document.write(`Remplacez « france » par « yahoo » dans l’adresse e-mail: <strong>${new_str_france}</strong>` )
+    document.write("<br/>")
+    document.write(`Afficher l’adresse avec toutes les caractères en minuscules: <strong>${new_str_france.toLowerCase()}</strong>` )
+    document.write("<br/>")
+    document.write(`Afficher l’adresse avec toutes les caractères en majuscules: <strong>${new_str_france.toUpperCase()}</strong>` )
+    document.write("<br/>")
+    document.write(`Affichez la fin de la chaîne à partir du caractère « @ ».: <strong>${new_str_france.substring(position_at)}</strong>` )
+    document.write("<br/>")
+    document.write(`Afficher la dernière position de la lettre ‘o’ (${new_str_france}): <strong>${new_str_france.lastIndexOf("o")}</strong>` )
+    document.write("<br/>")
+    document.write(`Afficher la dernière position de la lettre ‘o’(${strEmail}): <strong>${strEmail.lastIndexOf("o")}</strong>` )
+
+
+
+</script>
+</html>
