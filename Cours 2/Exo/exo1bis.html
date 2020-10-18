@@ -9,7 +9,7 @@
 <p>
     Demandez à l’utilisateur la taille d’un triangle et <br/>
     dessinez un triangle isocèle à l’aide de « * ».<br/>
-    Exemple : taille donnée par l’utilisateur : 3<br/>
+    Exemple : taille donnée par l’utilisateur : 5<br/>
             *
            ***
           *****
@@ -19,12 +19,12 @@
 </body>
 <script>
     let value = prompt("Entrez une valeur entre 1 et 10");
-    value=parseInt(value);
+    value= parseInt(value);
     if (value < 1 || value > 10) {
         alert('Erreur - Vous devez entrer une valeur comprise entre 1 et 100');
     } else {
-        document.write("<br/>___________________Solution 1_______________________________ <br/><br/>")
-
+        document.write("<br/>__________________Solution 1_______________________________ <br/><br/>")
+        document.write("<p style='text-align: center;'>");
         for (let i = 0; i < value; i++) {
 
             for (let j = 0; j < 2*i+1; j++) {
@@ -32,6 +32,7 @@
             }
             document.write("<br/>")
         }
+        document.write("</p>");
     }
 </script>
 </html>
