@@ -1,0 +1,24 @@
+<html>
+	<head>
+    </head>
+	<!--utiliser la famille de police monospace parce que les caractères vont avoir la même largeur - sinon l'éspace est plus étroit que le caractère * -->
+  <body style="font-family: monospace">
+    	<script language = "JavaScript">
+			var n = 0;
+			//récupérer la taille à afficher
+			n=parseInt(prompt("Taille du triangle : ", "3"));
+			//afficher le triangle
+			for (i=1; i<=n; i++)
+			{ 
+				for (j=1; j<=2*n-1; j++)
+				{
+					if ((j<=n-i)||(j>=n+i))
+						document.write("&nbsp;");
+					else 
+						document.write("*");
+				}
+				document.write("<br />");
+			}
+    </script>
+  </body>
+</html>

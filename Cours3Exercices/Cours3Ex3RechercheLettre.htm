@@ -1,0 +1,16 @@
+<html>
+<body>
+<script type="text/javascript">
+ var lettre = prompt("La lettre a rechercher = ", " ");
+	var nbLettre = 0;
+	var chaine = prompt("Votre chaîne = ", " ");
+	for (i=0; i<chaine.length; i++) 
+	{
+		if (chaine.charAt(i) == lettre)
+			nbLettre++;		
+	}		
+	document.write("nbLettre="+ nbLettre + "<br />");
+</script>
+
+</body>
+</html>

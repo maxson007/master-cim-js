@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <meta charset="UTF-8"> 
+     <style type="text/css">
+     
+      form div {
+        width:150px;
+        padding:2px;
+      }
+      input.rd{
+          float: right;
+      }
+      #error{
+          color:red;
+      }
+      .btn{
+        margin: 10px 0px !important;
+      }
+      
+      #actu{
+        margin: 10px 10px;
+        display: none;
+      }
+       </style>
+       
+       
+       <script >
+       
+       //alert(" ça marche");
+       function calcul(oper)
+       {
+          
+           a= document.getElementById("A").value;
+           b= document.getElementById("B").value;
+           
+          if(a=="" && b=="")
+          
+          {
+              document.getElementById("error").innerHTML=" Champs A et B vides ";
+          }else{
+              
+              if( a!="" && b=="")
+              {
+                 document.getElementById("error").innerHTML=" Champs B vides "; 
+              }else{
+                  
+                  if(a=="" && b!="")
+                  {
+                     document.getElementById("error").innerHTML=" Champs A vides ";   
+                      
+                  }else{
+                      
+                       document.getElementById("error").innerHTML="";  
+                       a= parseFloat(document.getElementById("A").value);
+                       b= parseFloat(document.getElementById("B").value);
+                       if (oper=="+") {
+              
+                          document.getElementById("result").innerHTML= a + b;
+                       }
+                       if (oper=="-") {
+              
+                           document.getElementById("result").innerHTML= a - b;
+                       }
+              
+                      if (oper=="*") {
+              
+                           document.getElementById("result").innerHTML= a * b;
+                       }
+                      if (oper=="/") {
+                                  
+                             if( b==0) {
+                                    document.getElementById("error").innerHTML="Champs B ne doit pas prendre la valeur 0";
+                                 }else{
+                     
+                                   document.getElementById("result").innerHTML= a / b;
+                                  }
+                      }
+ 
+                      
+                  }
+                  
+                 }
+          
+           
+       }
+       }
+       function select(){
+            
+    
+        for (var i = 0; i < document.getElementsByName('oper').length; i++)
+    {
+        if (document.getElementsByName('oper')[i].checked)
+        {
+            val= document.getElementsByName('oper')[i].value;
+        }
+    }
+    
+      
+      
+       if(val=="/")
+       {
+           document.getElementById("message").innerHTML = "Veuillez entrer les nombres A et B (La valeur de B doit être differente de 0).";
+       }else{
+          document.getElementById("message").innerHTML = "Veuillez entrer les nombres A et B.";
+          document.getElementById("error").innerHTML="";
+          }
+        
+        document.getElementById("myf").innerHTML="<input type='text' id='A' placeholder='A'/> "+ val +" <input  type='text' id='B' placeholder='B' /> = <span id='result'></span>";
+        document.getElementById("bt").setAttribute("onclick","calcul('"+val+"')"); 
+        document.getElementById("bt").innerHTML="Calculer"; 
+        document.getElementById("actu").style.display="initial";
+        
+        
+        }
+       
+       
+         
+       </script>
+    </head>
+<body>
+
+   <p id="message"> Veuillez choisir une opération:</p>    
+   <p id="error" ></p>
+   <form id="myf">     
+        <div>Addition: <input  class="rd" type="radio" name="oper" value="+" checked/></div>
+        <div> Soustration: <input  class="rd"  type="radio" name="oper" value="-"/></div>
+        <div>Division: <input   class="rd" type="radio" name="oper" value="/"/></div>
+        <div>Multiplication: <input  class="rd" type="radio" name="oper" value="*"/></div>
+            
+    </form>
+    <div class="btn"><button  type="button" id="bt"  onclick="select()"> Valider</button> <button  type="button" id="actu"  onclick="window.location.reload()"> Choisir une opération</button></div>
+
+</body>
+</html>

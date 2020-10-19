@@ -1,0 +1,17 @@
+<html>
+<body>
+<script type="text/javascript">
+ var strEmail = "Robert.Martin@france.fr";
+	var nPos = strEmail.indexOf("@");
+	var strTxt="Position @ : "+ (nPos+1) + "<br />"; //nPos+1 parce que l'index commence à 0. () obligatoires !
+	strEmail = strEmail.replace("france","yahoo");
+	strTxt = strTxt + "Remplacement 'france' par 'yahoo' : "+ strEmail + "<br />";
+	strTxt = strTxt + "Tout en minuscules : "+ strEmail.toLowerCase() + "<br />";
+	strTxt = strTxt + "Tout en majuscules : "+ strEmail.toUpperCase() + "<br />";
+	strTxt = strTxt + "Fin de la chaine après @ : "+ strEmail.substring(nPos) + "<br />";
+	strTxt = strTxt + "dernière position de la lettre ‘o’ : "+ (strEmail.lastIndexOf("o")+1) + "<br />";
+	document.write(strTxt);
+</script>
+
+</body>
+</html>

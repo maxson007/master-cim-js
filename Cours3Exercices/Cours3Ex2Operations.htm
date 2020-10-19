@@ -1,0 +1,25 @@
+<html>
+<body>
+<script type="text/javascript">
+//récupérer la première valeur numérique (int)
+  var nb1 = parseInt(prompt("Nb 1 = ", "1"));
+//récupérer l'opérateur
+  var op = prompt("Operateur = ", "+");
+//récupérer la 2ème valeur numérique (int)
+  var nb2 = parseInt(prompt("Nb 2 = ", "1"));
+//tester quelle est la valeur de l'opérateur, effectuer l'opération et afficher le résultat
+  if (op == "+")
+    document.write(nb1 + "+" + nb2 + " = " + (nb1+nb2));
+  if (op == "-")
+    document.write(nb1 + "-" + nb2 + " = " + (nb1-nb2));
+  if (op == "*")
+    document.write(nb1 + "*" + nb2 + " = " + (nb1*nb2));
+  if ((op == "/") && (nb2 != 0))
+    document.write(nb1 + "/" + nb2 + " = " + (nb1/nb2));
+  if ((op == "/") && (nb2 == 0))
+    document.write("Division par zero - impossible !");
+
+</script>
+
+</body>
+</html>
