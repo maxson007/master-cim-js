@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cours 3 Javascript | Exercice 5</title>
+</head>
+<body>
+<h1>Cours 3 Javascript | Exercice 5</h1>
+<p>
+    Créez le squelette d’une page web classique (en-tête, corps).
+</p>
+<p>
+    A l’aide de JavaScript, affectez la chaîne suivante à une variable :
+    <br/>
+<pre>
+        &lt;p>
+      Quelques exemples
+        de &lt;em>fonctions&lt;/em> de manipulation
+        de &lt;em>chaines de caractères&lt;/em>.
+     &lt;/p>
+    </pre>
+
+</p>
+<p>
+    Affichez la sous-chaîne commençant au 6ème caractère et finissant 6
+    caractères plus loin. <br>
+    Remplacer dans la chaîne la balise « em » par la balise « strong » et
+    affichez le nombre de remplacements effectués.<br/>
+    Utilisez la fonction replace() :<br/>
+    chaine.replace(valeurRecherchee,nouvelleValeur)<br/>
+    Attention, la fonction replace() remplace une seule fois la chaine de caractères<br/>
+</p>
+</body>
+<script>
+    let variable = `<p>Quelques exemples de <em>fonctions</em> de manipulation de <em>chaines de caractères</em>.</p>`
+
+    document.write(variable.substring(6, 12));
+
+    let resultReplace=variable.replace(/em>/g, "strong>")
+    document.write(resultReplace)
+    console.log(resultReplace)
+
+</script>
+</html>
