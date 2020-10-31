@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cours 3 Javascript | Exercice 6</title>
+</head>
+<body>
+<h1>Cours 3 Javascript | Exercice 6</h1>
+<p>
+    Créez dans un script JavaScript une page HTML<br/>
+    contenant un planning vide pour une semaine (de<br/>
+    lundi à dimanche et de 8h à 20h).
+</p>
+
+</body>
+
+<script>
+    let tableHead=[ "Planning", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
+    let horraire=[
+        "Planning",
+        "8h-9h",
+        "9h-10h",
+        "10h-11h",
+        "11h-12h",
+        "12h-13h",
+        "13h-14h",
+        "14h-15h",
+        "15h-16h",
+        "16h-17h",
+        "17h-18h",
+        "18h-19h",
+        "19h-20h",
+    ];
+    document.write("<table border='1'>")
+    for (let i=0;i<horraire.length;i++){
+        document.write("<tr>")
+        for(let j=0; j<tableHead.length;j++){
+            document.write("<td>")
+            if(i===0){
+                document.write(tableHead[j])
+            }
+            if(j===0 && i>0){
+                document.write(horraire[i])
+            }
+            document.write("</td>")
+        }
+        document.write("</tr>")
+
+    }
+    document.write("</table>")
+
+</script>
+</html>
