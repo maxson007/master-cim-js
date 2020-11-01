@@ -36,9 +36,17 @@
 
     document.write(variable.substring(6, 12));
 
+    //remplace tous les occurences de la balise em
     let resultReplace=variable.replace(/em>/g, "strong>")
     document.write(resultReplace)
     console.log(resultReplace)
+
+    //calcule nombre d'ocurence
+    let decoupe= variable.split("em>");
+    let nombreOccurence=decoupe.length-1;
+    console.log(decoupe);
+    document.write("<br>")
+    document.write(`Le nombre de remplacements effectués: <strong>${nombreOccurence}</strong>`)
 
 </script>
 </html>
