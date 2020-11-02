@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cours 4 Javascript | Exercice 2</title>
+</head>
+<body>
+<h1>Cours 4 Javascript | Exercice 3</h1>
+<p>
+    Créez rapidement 2 fichiers html : page1.html et page2.html. <br/>
+    Si l’hauteur de votre écran est supérieure à 768, chargez la page1 sinon la page2.<br/>
+    Indication :
+    <em>pour charger la page utilisez window.location.href = "nomFichier.htm"</em>
+</p>
+<script type="text/javascript">
+
+    if(screen.width<768)
+        window.location.href="./page2.html";
+    else window.location.href="./page1.html";
+
+</script>
+</body>
+</html>
