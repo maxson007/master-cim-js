@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cours 5 Javascript | Exercice 2-3</title>
+    <style>
+        .errorInput{
+            border: 2px solid red;
+            border-radius: 4px;
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+
+        }
+        input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<h1>Cours 5 Javascript | Exercice 2-3</h1>
+<p>
+<ol>
+
+    <li style="margin-bottom: 5px">
+        Reprenez l’exercice 1 en vérifiant que le symbole " @ "<br/>
+        apparaît exactement une fois. Sinon affichez le nombre
+        d’apparitions.
+    </li>
+    <li>
+        Ajoutez deux champs de texte Nom et Prénom et
+        vérifiez que l’adresse e-mail est bien<br/>
+        nom.prénom@univ-lyon2.fr
+    </li>
+</ol>
+</p>
+<form name="exo1">
+    <label for="nom">Nom:</label>
+    <input type="text" size="30" id="nom"><br/><br/>
+    <label for="prenom">Prénom:</label>
+    <input type="text" size="30" id="prenom"><br/><br/>
+    <label for="email">Email:</label>
+    <input type="text" size="30" id="email" onchange="verifier_e_mail()">
+    <span id="email_error" style="color: red"></span>
+
+</form>
+</body>
+<script>
+
+    function verifier_e_mail() {
+        let emailValue = document.exo1.email.value;
+        let nomValue = document.exo1.nom.value;
+        let prenomValue = document.exo1.prenom.value;
+        let usernameFormValue = `${nomValue}.${prenomValue}`;
+        let emailDecoupe = emailValue.split("@");
+        document.getElementById("email_error").innerHTML="";
+
+        let emailMessageError=`L’adresse email:  "${emailValue}"  n'est pas bonne`;
+        if (emailDecoupe.length > 1) {
+            let username = emailDecoupe[0]
+            let domaine = emailDecoupe[1]
+
+            if(usernameFormValue!==username || domaine!=="univ-lyon2.fr"){
+                document.getElementById("email_error").innerHTML=emailMessageError;
+            }
+
+        }else{
+            document.getElementById("email_error").innerHTML=emailMessageError;
+        }
+
+    }
+</script>
+</html>
