@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cours 5 Javascript | Exercice 2</title>
+</head>
+<body>
+<h1>Cours 5 Javascript | Exercice 2</h1>
+<p>
+    Reprenez l’exercice 1 en vérifiant que le symbole " @ "
+    apparaît exactement une fois. Sinon affichez le nombre
+    d’apparitions.
+</p>
+<form name="exo1">
+    <label for="email">Email:</label>
+    <input type="text" size="30" id="email" onchange="verifier_e_mail()">
+</form>
+</body>
+<script>
+function verifier_e_mail(){
+    let emailValue=document.exo1.email.value;
+    var arobaseTrouve=false
+    var arobaseCount=0;
+    for(var i=0; i<emailValue.length;i++){
+        if(emailValue.charAt(i)==="@"){
+            arobaseTrouve=true;
+            arobaseCount++;
+        }
+    }
+    if(arobaseCount===1)
+    {
+     alert("L’adresse est bonne ")
+    }
+    else{
+        alert(`L’adresse n'est pas bonne: \n Le arobase apparaît ${arobaseCount} fois`)
+    }
+}
+
+
+function verifier_e_mail_v2(){
+    let emailValue=document.exo1.email.value;
+    var emailDecoupe=emailValue.split("@");
+    var arobaseCount=emailDecoupe.length-1;
+    if(arobaseCount===1){
+        alert("L’adresse est bonne ")
+    }else{
+        alert(`L’adresse n'est pas bonne: \n Le arobase apparaît ${arobaseCount} fois`)
+    }
+}
+</script>
+</html>
