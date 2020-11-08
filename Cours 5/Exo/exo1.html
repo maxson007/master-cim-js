@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cours 5 Javascript | Exercice 1</title>
+</head>
+<body>
+<h1>Cours 5 Javascript | Exercice 1</h1>
+<p>
+    Ecrivez une fonction verifier_email() qui est appelée suite à
+    un changement dans un champ de texte et qui vérifie que le<br/>
+    texte contient le symbole " @ ".
+    <br/><br/>
+    Affichez un message (alert)
+    qui dit si l’adresse est bonne ou non.<br/><br/>
+    Vous pouvez utiliser la propriété length qui donne la taille d’une
+    chaine de caractères et la fonction charAt(position) qui retourne le<br/>
+    caractère qui se trouve à la position indiquée par la variable position.
+<br/><br/>
+   <em>Exemples :</em>  <code>chaine.length, chaine.chartAt(nPos)</code><br/><br/>
+    <code>
+        &lt;input type="text" size="30" id="email" onchange="verifier_e_mail()">;
+    </code>
+    <br/>
+    Indication : pour récupérer la valeur du champ utilisez:
+    <code>document.nom_forme.email.value</code><br/>
+    email = <strong>id</strong> de la balise <strong>input</strong> de type <strong>texte</strong> <br/>
+    nom_forme = la valeur de l’attribut <strong>id</strong> ou <strong>name</strong> dans la balise <strong>form</strong>
+</p>
+<form name="exo1">
+    <label for="email">Email:</label>
+    <input type="text" size="30" id="email" onchange="verifier_e_mail()">
+</form>
+</body>
+<script>
+function verifier_e_mail(){
+    let emailValue=document.exo1.email.value;
+    var arobaseTrouve=false
+    for(var i=0; i<emailValue.length;i++){
+        if(emailValue.charAt(i)=="@"){
+            arobaseTrouve=true;
+        }
+    }
+    if(arobaseTrouve)
+    {
+     alert("L’adresse est bonne ")
+    }
+    else{
+        alert("L’adresse n'est pas bonne ")
+    }
+}
+
+function verifier_e_mail_v2(){
+    let emailValue=document.exo1.email.value;
+    var arobaseIndex=emailValue.indexOf("@")
+
+    if(arobaseIndex>-1){
+        alert("L’adresse est bonne ")
+    }else{
+        alert("L’adresse n'est pas bonne ")
+    }
+}
+
+function verifier_e_mail_v3(){
+    let emailValue=document.exo1.email.value;
+    var emailDecoupe=emailValue.split("@");
+console.log(emailDecoupe);
+    if(emailDecoupe.length>1){
+        alert("L’adresse est bonne ")
+    }else{
+        alert("L’adresse n'est pas bonne ")
+    }
+}
+</script>
+</html>
