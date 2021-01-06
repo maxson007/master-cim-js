@@ -496,3 +496,560 @@ type et value (Ex. : `elements[index].type` ( type =
 </html> 
 
 ````
+
+## Cours 7
+
+### Exercice 1
+* Créez une page Web avec un paragraphe de texte et
+deux boutons : « **Noir** » et « **Rouge** ». Écrivez un
+programme JavaScript qui change la couleur du texte
+en fonction du bouton appuyé par l’utilisateur.
+* Indication : utilisez l’objet « **style** »
+
+````html
+<html>
+<head>
+<script type="text/javascript">
+function changeCouleur(couleur)
+{
+   document.getElementById("par").style.color = couleur;
+}
+</script>
+</head>
+<body>
+<p id = "par"> Texte qui change de couleur </p>
+	<button id = "rouge" onclick="changeCouleur('#F00')">Rouge</button>
+	<button id = "noir"  onclick="changeCouleur('black')">Noir</button>
+	
+</body>
+</html>
+
+````
+
+###Exercice 2
+
+* Faire apparaitre le texte de toutes les balises < p> d’une
+page en gras
+* Indication : utilisez l’objet « **style** »
+
+````html
+<html>
+<head>
+<script type="text/javascript">
+<!--   //l'événement onLoad dans la balise body appelle la fonction change Gras
+	function changeGras(){ //modifie le style des balises « p » dans une boucle
+		tabPar = document.getElementsByTagName("p");
+		for(var i=0; i< tabPar.length; i++){
+			tabPar[i].style.fontWeight = "900";
+		}
+	}
+
+//-->
+</script>
+</head>
+<body onload="changeGras()">
+<p> LE PETIT PRINCE </p>
+<p>Antoine de Saint-Exupéry</p>
+<img id="image1" src="img11.gif" />
+
+<p>Les grandes personnes aiment les chiffres.</p>
+<img id="image2" src="img12.gif" />
+</body>
+</html>
+
+````
+
+### Exercice 3
+Créez une page Web qui contient deux images. Ecrivez
+un programme Java Script qui permute les images
+quand l’utilisateur clique sur l’une d’entre elles.
+
+````html
+
+<html>
+    <head>
+        <script type="text/javascript">
+            function changeImages()
+            {
+               var txt = document.getElementById("img1").src;
+               document.getElementById("img1").src = document.getElementById("img2").src;
+               document.getElementById("img2").src = txt;
+            }
+        </script>
+    </head>
+    <body>
+        <img src = "img11.gif" id = "img1" onclick="changeImages()"/>
+        <img src = "img22.gif" id = "img2" onclick="changeImages()"/>
+    </body>
+</html>
+
+````
+
+### Exercice 4
+
+* Quand l’utilisateur passe la souris au dessus d’une
+image se trouvant dans une page Web, faites la
+apparaître avec une bordure verte de 3 pixels.
+
+* Indication : utilisez les événements onMouseOver et
+onMouseOut dans la balise « image »
+
+
+````html
+
+<html>
+    <head>
+        <script type="text/javascript">
+        <!--   //lévénement onMouseOver appelle la fonction ajoutBordure
+            function ajoutBordure(){ //modifie le style des balises « img » dans une boucle
+                tabImg = document.images;
+                for(var i=0; i< tabImg.length; i++){
+                    tabImg[i].style.borderWidth = "3px";
+                    tabImg[i].style.borderColor = "green";
+                    tabImg[i].style.borderStyle = "solid";
+                }
+            }
+                 //onMouseOut appelle la fonction effaceBordure pour leffacer quand le pointeur de la souris quitte limage
+            function effaceBordure(){
+                tabImg = document.images;
+                for(var i=0; i< tabImg.length; i++){
+                    tabImg[i].style.borderWidth = "0";
+                }
+            }
+        //-->
+        </script>
+    </head>
+    <body>
+        <p> LE PETIT PRINCE </p>
+        <p>Antoine de Saint-Exupéry</p>
+        <img id="image1" src="img11.gif" onMouseOver="ajoutBordure()" onMouseOut="effaceBordure()">
+        
+        <p>Les grandes personnes aiment les chiffres.</p>
+        <img id="image2" src="img12.gif" onMouseOver="ajoutBordure()" onMouseOut="effaceBordure()">
+    </body>
+</html>
+
+````
+
+## Cours 8
+
+### Exercice 1
+* Dans votre dossier de travail enregistrez 4 images de
+même taille.
+* En utilisant JavaScript, affichez dans une page Web un
+tableau (2 lignes et 2 colonnes) contenant les 4
+images (avec JavaScript).
+
+````html
+<html>
+<head>
+<script type="text/javascript">
+
+function chargeImages()
+{
+    var textPage = "<table border = 2>";
+    for(i=1; i<=2; i++)    {
+	textPage  = textPage +"<tr>";
+        for(j=1;j<=2;j++){
+	   textPage  = textPage +"<td><img src='img"+i+j+".gif' id = 'img"+i+j+"' /></td>";
+	}
+	textPage  = textPage +"</tr>";
+    }
+    textPage  = textPage +"</table>";
+    document.body.innerHTML = textPage ;
+
+}
+</script>
+</head>
+<body onLoad = "chargeImages()">
+
+</body>
+</html>
+
+````
+
+### Exercice 2
+* Créez une 5ème image – toujours de la même taille, qui a
+tous les pixels noirs.
+* A partir de l'exercice précédent, affichez l'image noire à
+chaque fois que l’utilisateur clique sur une image.
+
+````html
+<html>
+<head>
+<script type="text/javascript">
+
+function changeImg(i,j)
+{
+   document.getElementById("img"+i+j).src = "noir.gif";
+}
+
+function chargeImages()
+{
+    var textPage = "<table border = 2>";
+    for(i=1; i<=2; i++)    {
+	textPage  = textPage +"<tr>";
+        for(j=1;j<=2;j++){
+	   textPage  = textPage +"<td><img src='img"+i+j+".gif' id = 'img"+i+j+"' onclick = 'changeImg("+i+","+j+")'/></td>";
+	}
+	textPage  = textPage +"</tr>";
+    }
+    textPage  = textPage +"</table>";
+    document.body.innerHTML = textPage ;
+
+}
+</script>
+</head>
+<body onLoad = "chargeImages()">
+
+</body>
+</html>
+
+````
+
+### Exercice 3
+* Modifiez l'exercice 2 et, éventuellement les noms des
+images, pour que l'utilisateur puisse donner lui-même
+la taille du tableau à afficher.
+
+````html
+
+<html>
+<head>
+<script type="text/javascript">
+
+function changeImg(i,j)
+{
+   document.getElementById("img"+i+j).src = "noir.gif";
+}
+
+function chargeImages()
+{
+	var taille=parseInt(prompt('La taille du tableau est : ', 2));
+    var textPage = "<table border = 2>";
+    for(i=1; i<=taille; i++)    {
+	textPage  = textPage +"<tr>";
+        for(j=1;j<=taille;j++){
+	   textPage  = textPage +"<td><img src='img"+i+j+".gif' id = 'img"+i+j+"' onclick = 'changeImg("+i+","+j+")'/></td>";
+	}
+	textPage  = textPage +"</tr>";
+    }
+    textPage  = textPage +"</table>";
+    document.body.innerHTML = textPage ;
+
+}
+</script>
+</head>
+<body onLoad = "chargeImages()">
+
+</body>
+</html>
+
+
+````
+
+## Cours 9
+
+### Exercice 1
+Dans un formulaire placez une liste de type « **select** ».
+
+Les éléments de la liste sont :
+
+ * Google
+ * Kartoo
+ * Qwant
+ * All the Web
+ 
+et les valeurs sont :
+
+* http:// www.google.com
+* http://www.kartoo.com/
+* https://www.qwant.com/
+* http://www.alltheweb.com/
+
+Écrivez un script qui permet, en sélectionnant un élément de la
+liste, d’ouvrir directement la page qui correspond au site sélectionné
+
+* Indication : pour charger un document utilisez l’objet `location`
+* Exemple : `location="http://www.google.com";`
+
+````html
+<html>
+<head>
+  <script type="text/javascript">
+     function aller(){
+		var indice = document.formulaire.liste.selectedIndex;
+		var destination=document.formulaire.liste.options[indice].value;
+		location = destination;
+		/* //marche aussi avec :
+		var x=document.getElementById("liste");
+		document.location.href=x.value; // ou juste location.href=x.value;
+		*/
+		
+		
+     }
+  </script>
+</head>
+<body>
+
+<form name="formulaire">
+   Liste : <select name="liste" onchange="aller()">
+	<option name="o0" value="#">Choisir une destination...</option>
+	<option name="o1" value="http://www.google.com">Google</option>
+	<option name="o2" value="http://www.kartoo.com">Kartoo</option>
+	<option name="o3" value="https://www.qwant.com/">Qwant</option>
+	<option name="o4" value="http://www.alltheweb.com">All the Web</option>
+   </select>
+</form>
+</body>
+</html> 
+
+
+````
+
+### Exercice 2
+* Créez un formulaire qui contient 2 listes (select): « Sports » et
+« Epreuves ». Ecrivez un script qui permet de modifier
+automatiquement la deuxième liste en fonction du sport choisi par
+l’utilisateur dans la première liste.
+*  Exemple : l’utilisateur choisit « Gymnastique » dans la liste « Sports ».
+La liste « Epreuves » doit alors contenir : « Anneaux Hommes », « Barre
+fixe Hommes », « Exercices au sol Hommes », « Barres asymétriques
+Femmes », « Poutre Femmes », « Exercices au sol Femmes », etc.
+* Attention :
+    * pour ajouter une option dans une liste select, créez un nouvel élément de
+type « option » et ajoutez-le à la liste en utilisant la méthode
+add(nouvelElement).
+        * Exemple : liste.add(nouvelElement)
+    * pour supprimer une option d’une liste select utilisez la méthode
+remove(index) où index représente l’indice de l’élément à supprimer
+
+````html
+
+<html>
+<head>
+<script type="text/javascript">
+//initialisation des tableaux qui vont constituer la liste :
+//tableau des sports
+var tabSports = new Array("Gymnastique", "Athletisme", "Football"); //definir un tableau contenant 3 sports
+
+//tableau des epreuves
+ tabEpreuves = new Array(3);//ici m=3 - 3 sports
+ tabEpreuves[0] = new Array("Anneaux Hommes", "Barre fixe Hommes", "Exercices au sol Hommes", "Barres asymetriques Femmes", "Poutre Femmes", "Exercices au sol Femmes");
+ tabEpreuves[1] = new Array("100m Hommes", "5000m Hommes", "10000m Hommes", "100m Femmes", "5000m Femmes", "10000m Femmes");
+ tabEpreuves[2] = new Array("Masculin", "Feminin");
+
+
+function construireListeSports(){
+	for(i=0; i<tabSports.length; i++){
+		//alert(i);
+		texteNouveauItem = tabSports[i];
+		liste=document.getElementById("sports");
+		newOption=document.createElement("option");
+		newOption.text=texteNouveauItem ;//la valeur affichee sur l'ecran
+		newOption.value=i ;//la valeur retournee a la selection d'un item de la liste
+		liste.add(newOption, null);
+	}
+}
+
+function construireListeEpreuves(){
+	//effacer l'ancienne liste
+ 	liste=document.getElementById("epreuves");
+	taille = liste.options.length;
+	for (i=taille-1; i>0; i--) //boucle pour parcourir la liste des options et les effacer
+	{
+		liste.remove(i);
+	}
+
+	//récuperer l'index de l'element selectionne dans la liste des sports
+	var noSport=document.formulaire.sports.selectedIndex; 
+	//alert("No sport="+noSport);
+	for(i=0; i<tabEpreuves[noSport-1].length; i++){
+		texteNouveauItem = tabEpreuves[noSport-1][i];
+		newOption=document.createElement("option");
+		newOption.text=texteNouveauItem ;//la valeur affichee sur l'ecran
+		newOption.value=i ;//la valeur retournee a la selection d'un item de la liste
+		liste.add(newOption, null);
+	}
+
+}
+</script>
+</head>
+
+<body onLoad = "construireListeSports()" >
+<form name="formulaire">
+Sports : 
+<select id="sports" onchange="construireListeEpreuves()">
+     <option value ="choisirSport">Choisissez un sport...</option>
+</select> 
+<br />
+Epreuves : 
+<select id="epreuves">
+     <option value ="choisirEpreuve">Choisissez une epreuve...</option>
+</select> 
+
+</form>
+</body>
+</html>
+
+````
+
+## Cours 10
+
+### Exercice 1
+* Créez une page HTML qui contient une liste de
+courses (liste non ordonnée avec 2 items), un champ
+de saisie, un bouton « Ajouter » et un autre bouton
+« Effacer »
+* Quand l’utilisateur saisit du texte dans le champ de
+saisie et clique sur le bouton « Ajouter », le texte
+doit apparaître comme nouvel item dans la liste des
+courses. Quand l’utilisateur clique sur « Effacer »,
+effacez la liste.
+
+````html
+<html>
+<head>
+<title>Liste des courses</title>
+<script type="text/javascript">
+<!--
+	function ajout()
+		{
+			textenouveauitem = document.forme.nouvelelement.value;
+			liste=document.getElementById("listecourses");
+			nouveauli=document.createElement("li");
+			nouveauli.innerHTML=textenouveauitem ;
+			liste.appendChild(nouveauli);
+		}
+	function efface()
+		{
+			liste=document.getElementById("listecourses");
+			items=document.getElementsByTagName("li");
+			l = items.length;
+			for (i=l-1; i>=0; i--)
+			{
+				liste.removeChild(items[i]);
+	
+			}
+		}
+
+//-->
+</script>
+
+</head>
+<body>
+
+<ul id="listecourses">
+	<li>1 kg de farine</li>
+	<li>1 l de lait</li>
+</ul>
+<form name = "forme">
+Nouvel element : <input type="text" size="60" id="nouvelelement" >
+<input type="button" onclick="ajout()" value="Ajouter" />
+<input type="button" onclick="efface()" value="Effacer" />
+</form>
+</body>
+</html>
+
+````
+
+### Exercice 2
+* Dessinez une grille sur la moitié de l’hauteur de la fenêtre
+du navigateur, à l’aide d’un tableau.
+* Mettez en dessous au moins 8 boutons radio à coté des
+petits carrés représentant des couleurs
+* Ajoutez un bouton qui va permettre d‘effacer la grille
+* Le but est de sélectionner une couleur et ensuite, quand
+l’utilisateur clique sur une cellule de la grille, d’appliquer la
+couleur sélectionnée comme arrière-plan de la cellule
+
+````html
+<html>
+	<head>
+		<style>
+			#grille{
+					height:50%;
+					width:50%;
+			}
+			
+		</style>
+		<script language='javascript'>
+			var x=0; // x et y sont deux variables globales contenant la dimension de la grille
+			var y=0;
+
+			function changeFond(i,j){
+				cellule = document.getElementById(i+""+j);
+				radios=document.getElementsByName("couleur");
+				for(i=0;i<radios.length; i++){
+					if(radios[i].checked) {
+						cellule.style.backgroundColor=radios[i].value;
+					};
+				};
+			}
+
+			function construireTableau(x,y) {
+				var textPage = "<table id='grille' border = 2 cellspacing=0 cellpadding=0>";
+				for(i=1; i<=y; i++)    {
+					textPage  = textPage +"<tr>";
+					for(j=1;j<=x;j++){//identifiant ij pour chaque cellule (ne pas dépasser la taille 9 pour le tableau !
+						textPage  = textPage +"<td id="+i+j+" onclick=changeFond("+i+","+j+")>&nbsp;&nbsp;&nbsp;</td>";
+					}
+					textPage  = textPage +"</tr>";
+				}
+				textPage  = textPage +"</table>";
+				document.writeln(textPage);
+			}
+			function effaceTableau(x,y) {
+			//alert(x);
+			   for(i=1; i<=y; i++)    {
+					for(j=1;j<=x;j++){
+					cellule=document.getElementById(''+i+j);
+					cellule.style.backgroundColor="white";
+					}
+				}
+			}
+		</script>
+	</head>
+<body>
+<script>
+	if(x==0 &&y==0){
+		x = parseInt(prompt("Taille de la grille : x = ", "5"));
+		y = parseInt(prompt("Taille de la grille : y = ", "5"));
+	}
+	construireTableau(x,y);
+</script>
+    <form id="formulaire">
+        <table>
+            <tr>
+                <td width="20" bgcolor="#FF9900">&nbsp;</td>
+                <td width="20" bgcolor="#FF0000">&nbsp;</td>
+                <td width="20" bgcolor="#00FF00">&nbsp;</td>
+                <td width="20" bgcolor="#0000FF">&nbsp;</td>
+                
+                <td width="20" bgcolor="#FFFF00">&nbsp;</td>
+                <td width="20" bgcolor="#00FFFF">&nbsp;</td>
+                
+                <td width="20" bgcolor="#FF00FF">&nbsp;</td>
+                <td width="20" bgcolor="#000000">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type=radio name="couleur" value="orange" ></td>
+                <td>
+                    <input type=radio name="couleur" value="red"></td><td>
+                    <input type=radio name="couleur" value="green"></td><td>
+                    <input type=radio name="couleur" value="blue"></td><td>
+                    <input type=radio name="couleur" value="yellow"></td><td>
+                    <input type=radio name="couleur" value="turquoise"></td><td>
+                    <input type=radio name="couleur" value="magenta"></td><td>
+                    <input type=radio name="couleur" value="black" checked="checked"></td>
+            </tr>
+        </table>
+        <button type="button" onclick="effaceTableau(x,y)">Effacer</button>
+    </form>
+
+</body>
+</html>
+
+
+````
