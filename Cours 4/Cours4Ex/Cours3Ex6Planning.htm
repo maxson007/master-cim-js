@@ -1,0 +1,32 @@
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+  	var strTxt= "<h1>Planning de la semaine</h1> \n";
+  	//les jours de la semaine sont stockées dans un tableau
+  	tabJours=new Array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
+  	strTxt = strTxt + "<table border='1'> \n";
+	strTxt = strTxt +  "<tr> \n";
+	//afficher l'en-tête du planning (une première cellule qui contient "Planning" et ensuite les jours de la semaine)
+	strTxt = strTxt + "<th> Planning </th>\n";
+	for(nPosx=0; nPosx<7; nPosx++){
+		strTxt = strTxt + "<th scope=\"col\">"+tabJours[nPosx]+"</th> \n";
+	}
+	strTxt = strTxt + "</tr> \n"; //fin de la première ligne
+	
+	for (nPosy=0; nPosy<12; nPosy++){
+		strTxt = strTxt + "<tr> \n";
+		//affiche la première cellule contenant l'heure
+		strTxt = strTxt + "<th scope=\"row\"> "+(nPosy+8)+"h-"+(nPosy+9)+"h </th> \n";
+			for(nPosx=0; nPosx<7; nPosx++){
+				strTxt = strTxt + "<td>&nbsp;</td>"+"\n";
+			}
+			strTxt = strTxt +  "</tr> \n";
+		}
+	strTxt = strTxt + "</table> \n";
+	document.write(strTxt);
+</script>
+
+</body>
+</html>

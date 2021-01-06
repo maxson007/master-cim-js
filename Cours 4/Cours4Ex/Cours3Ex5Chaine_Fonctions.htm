@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+	var strExemple = "<p>Quelques exemples de <em>fonctions</em> de manipulation de <em>chaines de caractères</em>.</p>";
+ 	var strTxt="Chaine initiale :" + strExemple+ "<br />"; 
+	var strExtraction = strExemple.substring(5, 5+6); // position de début = 6 => index = 6-1 =5 (la première position est 0). Les balises HTML sont prises en compte !
+	strTxt=strTxt + "Extraction chaine : à partir de la 6-ème position, 6 caractères :" + strExtraction+ "<br />"; 
+	var strRemplace = strExemple;
+	strChaine="";
+	nbRemplacements = 0;
+	while (strRemplace != strChaine){
+		strChaine=strRemplace;
+		strRemplace = strChaine.replace("em>", "strong>");
+		nbRemplacements++;
+	}
+	nbRemplacements--;//au début strChaine et strRemplace sont différents, donc à la sortie de la boucle nbRemplacements doit être diminué de 1
+	//en une ligne, avec des expressions régulières : var strRemplace = strExemple.replace(/em>/g, "strong>");
+	strTxt=strTxt + "Remplacement chaine : " + strRemplace+" nombre de remplacements = "+nbRemplacements+ "<br />"; 
+	document.write(strTxt);
+</script>
+
+</body>
+</html>
