@@ -106,3 +106,70 @@ informations du formulaire en dessous. Avant d’ajouter les informations concer
 une nouvelle inscription, vérifiez que le mot de passe n’est pas identique au pseudo, à
 la date de naissance ou à la concaténation des deux. Si c’est le cas, affichez un
 message d’alerte.
+
+````html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exo2</title>
+    <script>
+        //une valeur numérique comprise entre 1 et 95 ou 971 et 976 ou 986 et 988.
+        function verifierCodePostale(){
+            let codePostale=document.getElementById("codepostale").value;
+            let codeDOMTOM = [971, 976, 986,988];
+            let assert=(codePostale>=1 && codePostale<=95)||(codeDOMTOM.includes(codePostale));
+            if(!assert) alert("Le code Poste saisie:  '"+codePostale+"' n'est pas correct")
+        }
+
+        //le mot de passe contient plus de 8 caractères.
+        function verificationModeDePasse(){
+           let mdp=document.getElementById("motdepasse").value;
+
+           if(mdp.length<8)alert("Le mot de passe saisie doit avoir au minimum 8 caractère ")
+        }
+
+        function ajouter(){
+            var div= document.getElementById("info");
+            let pseudo=document.getElementById("pseudo").value;
+            div.innerHTML+="<hr/>"
+            div.innerHTML+="<h1>"+pseudo+"</h1>"
+        }
+    </script>
+</head>
+<body>
+<form name="formulaire" id="formulaire">
+
+    <label>Pseudo </label>
+    <input type="text" name="pseudo" id="pseudo"><br/>
+
+    <label>Numéro </label>
+    <input type="number" name="numero" id="numero"><br/>
+
+    <label>Rue </label>
+    <input type="text" name="rue" id="rue"><br/>
+
+    <label>Code postal </label>
+    <input type="text" name="codepostale" id="codepostale" onchange="verifierCodePostale()"><br/>
+
+    <label>Commune </label>
+    <input type="text" name="commune" id="commune"><br/>
+
+    <label>Date de naissance </label>
+    <input type="date" name="datenaissance" id="datenaissance"><br/>
+
+    <label>Mot de passe </label>
+    <input type="password" name="motdepasse" id="motdepasse" onchange="verificationModeDePasse()"><br/>
+
+
+    <input type="button" value="Ajouter" onclick="ajouter()">
+
+    <div id="info">
+
+    </div>
+</form>
+</body>
+</html>
+
+
+````
