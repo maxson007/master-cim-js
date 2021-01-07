@@ -102,10 +102,11 @@ Vérifiez (en utilisant des fonctions JavaScript) :
 * c. Si vous voyez d’autres vérifications possibles, implémentez-les.
 * d. Quand l’utilisateur clique sur le bouton « Ajouter », affichez – à la fin de la page – un
 trait horizontal (balise `<hr />`), le pseudo en titre de niveau 1 (`<h1>`) et les autres
-informations du formulaire en dessous. Avant d’ajouter les informations concernant
-une nouvelle inscription, vérifiez que le mot de passe n’est pas identique au pseudo, à
-la date de naissance ou à la concaténation des deux. Si c’est le cas, affichez un
-message d’alerte.
+informations du formulaire en dessous. 
+Avant d’ajouter les informations concernant une nouvelle inscription, 
+vérifiez que le mot de passe n’est pas identique au pseudo, à
+la date de naissance ou à la concaténation des deux. Si c’est le cas, 
+affichez un message d’alerte.
 
 ````html
 <!DOCTYPE html>
