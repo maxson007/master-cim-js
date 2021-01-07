@@ -3,17 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+        function titleColor() {
+            if (screen.height >= 1200) {
+                document.getElementsByTagName('h1').item(0).style.color = "blue";
+
+            } else {
+                document.getElementsByTagName('h1').item(0).style.color = "green";
+            }
+        }
+
+        function calculeNombreImage() {
+            let text = "Le nombre d’images sur cette page est de : " + document.images.length;
+            document.getElementById("nbrImg").innerHTML = text;
+        }
+
+        function ready() {
+            calculeNombreImage()
+            titleColor()
+        }
+
+        function search() {
+            let search = document.getElementById("search").value;
+            var nb = 0;
+            if (search.length == 0) return 0;
+            parragraphe = document.getElementsByTagName("p");
+            for (var i = 0; i < parragraphe.length; i++) {
+                let text = parragraphe[i].innerText
+                if (text.indexOf(search) != -1) {
+                    nb++;
+                }
+            }
+            document.getElementById("occ").innerHTML = "Le caractère \"" + search + "\" apparait " + nb + " fois";
+
+        }
+    </script>
 </head>
-<body>
+<body onload="ready()">
 <h1>Mon titre</h1>
 <p>
     Mon paragraphe
 </p>
 
-<img src="image.jg">
-<img src="image.jg">
-<img src="image.jg">
-<input type="text" name="search">
-<button name="search">Rechercher</button>
+<img src="https://source.unsplash.com/random" width="100px">
+<img src="https://source.unsplash.com/random" width="100px">
+<img src="https://source.unsplash.com/random" width="100px">
+<br>
+<br>
+<br>
+<input type="text" name="search" id="search">
+<button name="search" onclick="search()">Rechercher</button>
+<p id="nbrImg">
+    Le nombre d’images sur
+    cette page est de : 0
+</p>
+
+<p id="occ">
+</p>
 </body>
 </html>

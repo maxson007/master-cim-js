@@ -1,3 +1,5 @@
+# Examen JavaScript
+ VCIEL - 16/01/2020
 ## Exercice 1
 Créez une page HTML contenant un titre, un paragraphe de texte, quelques images (noms de
 fichiers fictifs), un champ de saisie et un bouton « Rechercher ».
@@ -12,3 +14,95 @@ cette page est de : » et calculez et affichez automatiquement le nombre d’ima
 sur l’ensemble de la page HTML sous la forme : « Le caractère "x" apparait n fois »,
 où x est le caractère saisi par l’utilisateur et n est le nombre d’apparitions de ce
 caractère dans la page.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function titleColor() {
+            if (screen.height >= 1200) {
+                document.getElementsByTagName('h1').item(0).style.color = "blue";
+
+            } else {
+                document.getElementsByTagName('h1').item(0).style.color = "green";
+            }
+        }
+
+        function calculeNombreImage() {
+            let text = "Le nombre d’images sur cette page est de : " + document.images.length;
+            document.getElementById("nbrImg").innerHTML = text;
+        }
+
+        function ready() {
+            calculeNombreImage()
+            titleColor()
+        }
+
+        function search() {
+            let search = document.getElementById("search").value;
+            var nb = 0;
+            if (search.length == 0) return 0;
+            parragraphe = document.getElementsByTagName("p");
+            for (var i = 0; i < parragraphe.length; i++) {
+                let text = parragraphe[i].innerText
+                if (text.indexOf(search) != -1) {
+                    nb++;
+                }
+            }
+            document.getElementById("occ").innerHTML = "Le caractère \"" + search + "\" apparait " + nb + " fois";
+
+        }
+    </script>
+</head>
+<body onload="ready()">
+<h1>Mon titre</h1>
+<p>
+    Mon paragraphe
+</p>
+
+<img src="https://source.unsplash.com/random" width="100px">
+<img src="https://source.unsplash.com/random" width="100px">
+<img src="https://source.unsplash.com/random" width="100px">
+<br>
+<br>
+<br>
+<input type="text" name="search" id="search">
+<button name="search" onclick="search()">Rechercher</button>
+<p id="nbrImg">
+    Le nombre d’images sur
+    cette page est de : 0
+</p>
+
+<p id="occ">
+</p>
+</body>
+</html>
+
+```
+
+
+# Exercice 2
+Créez une page HTML avec un formulaire d’inscription qui contient les informations
+suivantes :
+1. Pseudo ;
+2. Adresse : Numéro, Rue, Code postal, Commune ;
+3. Date de naissance ;
+4. Mot de passe ;
+5. Un bouton « Ajouter ».
+
+Utilisez les types de balises qui vous semblent les plus appropriés.
+Vérifiez (en utilisant des fonctions JavaScript) :
+
+* a. Que le code postal est une valeur numérique comprise entre 1 et 95 ou 971 et 976 ou
+986 et 988.
+* b. Que le mot de passe contient plus de 8 caractères.
+* c. Si vous voyez d’autres vérifications possibles, implémentez-les.
+* d. Quand l’utilisateur clique sur le bouton « Ajouter », affichez – à la fin de la page – un
+trait horizontal (balise `<hr />`), le pseudo en titre de niveau 1 (`<h1>`) et les autres
+informations du formulaire en dessous. Avant d’ajouter les informations concernant
+une nouvelle inscription, vérifiez que le mot de passe n’est pas identique au pseudo, à
+la date de naissance ou à la concaténation des deux. Si c’est le cas, affichez un
+message d’alerte.
